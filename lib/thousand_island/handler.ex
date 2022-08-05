@@ -388,6 +388,9 @@ defmodule ThousandIsland.Handler do
           {:close, state} ->
             {:stop, {:shutdown, :local_closed}, {socket, state}}
 
+          {:error, state} ->
+            {:stop, {:shutdown, :local_closed}, {socket, state}}
+
           {:error, reason, state} ->
             {:stop, reason, {socket, state}}
         end
